@@ -1,0 +1,19 @@
+{
+  "name": "senior-design-marketplace-node",
+  "version": "1.0.0",
+  "description": "A marketplace to browse and sign up for senior design projects",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/robjweiss/Senior-Design-Marketplace-Node.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/robjweiss/Senior-Design-Marketplace-Node/issues"
+  },
+  "homepage": "https://github.com/robjweiss/Senior-Design-Marketplace-Node#readme"
+}
