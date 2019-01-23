@@ -1,0 +1,5 @@
+{
+    "path" : "/login/callback",
+    "entryPoint" : "https://idp-dev.ucsf.edu/idp/profile/SAML2/Redirect/SSO",
+    "issuer" : "http://172.16.226.167/shibboleth"
+}

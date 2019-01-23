@@ -1,0 +1,82 @@
+<section>
+    <h1 class="index-header">{{title}}</h1>
+    <div class= "container">
+        <div class="row justify-content-center">
+            <form class="needs-validation" novalidate action="/signup" method="POST" id='signup-form'>
+                <div class="form-row justify-content-center">
+                    <div class="col-md-8 mb-3">
+                        <label for="firstNameText">First name</label>
+                        <input type="text" class="form-control" id="firstNameText" name= "firstName" placeholder="First name" required>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                        <div class="invalid-feedback">
+                            Please enter a First Name.
+                        </div>
+                    </div>
+                    <div class="col-md-8 mb-3">
+                        <label for="lastNameText">Last name</label>
+                        <input type="text" class="form-control" id="lastNameText" name= "lastName" placeholder="Last name" required>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                        <div class="invalid-feedback">
+                            Please enter a Last Name.
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row justify-content-center">
+                    <div class="col-md-8 mb-3">
+                        <label for="usernameText">Username</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroupPrepend">@</span>
+                            </div>
+                            <input type="text" class="form-control" id="usernameText" name= "username" placeholder="Username"
+                                aria-describedby="inputGroupPrepend" required>
+                            <div class="invalid-feedback">
+                                Please choose a Username.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row justify-content-center">
+                    <div class="col-md-8 mb-3">
+                        <label for="passwordText">Password</label>
+                        <input type="password" class="form-control" id="passwordText" name= "password" placeholder="Password" required>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                        <div class="invalid-feedback">
+                            Please enter a Password.
+                        </div>
+                    </div>
+                    <div class="col-md-8 mb-3">
+                        <label for="passwordText2">Re-enter Password</label>
+                        <input type="password" class="form-control" id="passwordText2" name= "password2" placeholder="Password" required>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                        <div class="invalid-feedback">
+                            Please re-enter the Password.
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="login-user">
+                        <ul class="nav">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="./">Already have an account?</a>
+                            </li>
+                        </ul>
+                        <div class= "error-msg">{{error}}</div>
+                    </div>
+                </div>
+                <div class="row justify-content-center signup">
+                    <button class="btn btn-primary" type="submit">Sign Up!</button>
+                </div>
+            </form>
+        </div>
+        <script src="/public/js/login-validation.js"></script>
+    </div>
+</section>
