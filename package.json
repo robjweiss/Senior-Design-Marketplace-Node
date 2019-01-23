@@ -4,7 +4,8 @@
   "description": "A marketplace to browse and sign up for senior design projects",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
@@ -12,6 +13,19 @@
   },
   "author": "",
   "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.16.4",
+    "express-handlebars": "^3.0.0",
+    "handlebars": "^4.0.12",
+    "jquery": "^3.3.1",
+    "mongodb": "^3.1.10",
+    "node-uuid": "^1.4.8",
+    "passport": "^0.4.0",
+    "passport-saml": "^1.0.0",
+    "xss": "^1.0.3"
+  },
   "bugs": {
     "url": "https://github.com/robjweiss/Senior-Design-Marketplace-Node/issues"
   },

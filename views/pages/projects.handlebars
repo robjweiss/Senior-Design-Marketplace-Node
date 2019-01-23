@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Stevens Senior Design Marketplace</title>
+
+    <!-- Bootstrap core CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.2/css/bootstrap-select.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<link rel="stylesheet" href="{{url_for('static', filename='custom.css') }}">
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background-color: #9D1535;">
+      <a class="navbar-brand" href="/projects">SDMarketplace</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <!--<li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>-->
+          <li class="nav-item">
+            <a class="nav-link" href="/projects">Projects</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="/createProposal">Submit Proposal</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="/createProject">Create Project</a>
+          </li>
+
+		  <li class="nav-item">
+            <a class="nav-link" href="/projects">Archives</a>
+          </li>
+          <!--<li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="/" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+            <div class="dropdown-menu" aria-labelledby="dropdown01">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </li>-->
+
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" id="search" type="text" placeholder="Search" aria-label="Search">
+        </form>
+      </div>
+    </nav>
+
+    <main role="main" class="container">
+	<nav class="navbar navbar-light bg-light">
+	<form class="form-inline">
+	
+<div class="input-group">
+    <input type="text" class="form-control" placeholder="Keywords" aria-label="Username" aria-describedby="basic-addon1">
+</div>
+
+<!--
+Use data-width="fit" to make them just enough to see all text
+Use none to make bigger
+-->
+<div class="form-group">
+  <select class="selectpicker" multiple data-showTick="true" title="Majors" data-live-search="true">
+    <optgroup label="Engineering">
+    <option>Biomedical</option>
+    <option>Chemical</option>
+    <option>Civil</option>
+    <option>Computer</option>
+    <option>Electrical</option>
+    <option>Environmental</option>
+    <option>Management</option>
+    <option>Mechanical</option>
+    <option>Naval</option>
+    <option>Software</option>
+    <option>Systems</option>
+	</optgroup>
+	<optgroup label="Sciences">
+	</optgroup>
+  </select>
+</div>
+  
+<div class="form-group">
+  <select class="selectpicker" multiple data-showTick="true" title="Approval">
+    <option>Approved</option>
+    <option>Pending</option>
+  </select>
+</div>
+
+<div class="form-group">
+  <select class="selectpicker" data-width="fit" title="Include Full Groups?">
+    <option>Yes</option>
+    <option>No</option>
+  </select>
+</div>
+
+<div class="form-group">
+  <select class="selectpicker" title="Sort by">
+    <option>A-Z</option>
+    <option>Popularity</option>
+	<option>Space Available</option>
+	<option>Date Posted</option>
+  </select>
+</div>
+
+	</form>
+	</nav>
+	
+       <div class="card-deck">
+		
+		<a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+      </div>
+	<nav aria-label="...">
+	  <ul class="pagination justify-content-center">
+		<li class="page-item" id="prevli">
+          <a class="page-link pagin" href="#" id="prev">Previous</a></span>
+		</li>
+		<span class="paginationHolder" style="display:inline"></span>
+	
+		<li class="page-item" id="nextli">
+		 <a class="page-link pagin" href="#" id='next'>Next</a>
+		</li>
+	  </ul>
+	</nav>
+    </main>
+	<!--Modals-->
+	<div class="modal-container"></div>
+	
+
+	</body>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.2/js/bootstrap-select.min.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script src="{{url_for('static', filename='qrcode/qrcode.js') }}"></script>
+<script src="{{url_for('static', filename='jsObjects.js') }}"></script>
+
+<script type="text/javascript">
+$.fn.selectpicker.Constructor.BootstrapVersion = '4';
+</script>
+<script>
+projects = {{ projects |tojson }};
+page = 1;
+pageTotal = 0;
+rowTotal = 0;
+projects.forEach(function(x, i) {
+id = x[0];
+title = x[1];
+desc = x[2];
+author = x[3];
+date = x[4];
+views = x[5];
+visibility = x[6];
+sponsors = x[7];
+locked = x[8];
+url = "http://http://localhost:5000/";
+if(locked == 1) {
+locked = "<i class='material-icons'>lock</i>";
+} else {
+locked = "";
+}
+if(!(i % 3)) {
+rowTotal++;
+$(".card-deck").append("<div style='padding-bottom:1rem;' class='row' id='r" + rowTotal + "'></div>");
+}
+$("#r" + rowTotal).append(projectCard(id, title, desc, date, locked));
+$("#shortDesc" + id).text($("#shortDesc" + id).text().substring(0,100) + '...');
+$(".modal-container").append(projectModal(id, title, desc, date, views, author, locked, url));
+if(!(i % 6)) {
+pageTotal++;
+} 
+});
+if(pageTotal == 0) {
+pageTotal = 1;
+}
+if(rowTotal == 0) {
+rowTotal = 1;
+}
+for(i = 1; i < pageTotal+1; i++) {
+$(".paginationHolder").append("<li class='page-item' id='p" + i + "'><a class='page-link' href='#p" + i + "'>" + i + "</a></li>");
+}
+<!--Page change function-->
+function pageChange(page, dir, init) {
+init = init || false;
+dir = dir || 0;
+$("#p" + page).addClass('active');
+$("#page-link[href=p" + page + "]").append("<span class='sr-only'>(current)</span>");
+if(init == false) {
+remove = page + dir;
+$("#p" + remove).removeClass("active");
+$("#page-link[href=p" + page + "]").remove("span#class-only");
+}
+}
+pageChange(page,0,true);
+if(page == 1) {
+$("#prevli").addClass("disabled");
+} 
+if(page == pageTotal) {
+$("#nextli").addClass("disabled");
+}
+<!--Start Keypress->
+$(document).on("keydown", function(event) {
+<!--Backward-->
+if(event.which == 37) {
+page--;
+if(page <= 0) {
+page = 1;
+}
+pageChange(page,1);
+<!--Forward-->
+} else if(event.which == 39) {
+page++;
+if(page > pageTotal) {
+page = pageTotal;
+}
+pageChange(page,-1);
+}
+<!--Events regardless of which keypress-->
+if(page == 1) {
+$("#prevli").addClass("disabled");
+} else if($("#prevli").hasClass("disabled")){
+$("#prevli").removeClass("disabled");
+}
+if(page == pageTotal) {
+$("#nextli").addClass("disabled");
+} else if($("#nextli").hasClass("disabled")){
+$("#nextli").removeClass("disabled");
+}
+});
+<!--End Keypress-->
+<!--Favorite button on modal-->
+$("#favButton").on('click', function() {
+if($("#favText").html() == "favorite") {
+$("#favText").html("favorite_border");
+} else {
+$("#favText").html("favorite");
+}
+});
+$(document).ready(function(){
+new QRCode($("#qrTest")[0], $("#qrTest").attr("href"));
+$("#qrTest").append("<i class='material-icons' style='color:#9D1535'>print</i><a class='regularLink' href='#' id='printQR'>Print me</a>");
+  
+$("#printQR").on("click", function() {
+window.print();
+});
+  });
+</script>
+</html>
