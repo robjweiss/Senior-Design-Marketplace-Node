@@ -1,7 +1,7 @@
 
 $.fn.selectpicker.Constructor.BootstrapVersion = '4';
 
-projects = {{ projects |tojson }}; //?????
+projects = {}; //?????
 page = 1;
 pageTotal = 0;
 rowTotal = 0;

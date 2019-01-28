@@ -9,5 +9,13 @@ router.get("/", async function (req, res) {
     res.render("pages/projects");
 });
 
+router.get("/createProposal", async function (req, res) {
+    res.render("pages/createProposal");
+});
+
+router.get("/projects", async function (req, res) {
+    res.render("pages/projects");
+});
+
 
 module.exports = router;
