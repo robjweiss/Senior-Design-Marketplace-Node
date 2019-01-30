@@ -17,5 +17,8 @@ router.get("/projects", async function (req, res) {
     res.render("pages/projects");
 });
 
+router.get("/createProject", async function (req, res) {
+    res.render("pages/createProject");
+});
 
 module.exports = router;
