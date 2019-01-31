@@ -27,5 +27,25 @@ module.exports = {
 
         const insertInfo = await projectsCollection.insertOne(newProject);
         if (insertInfo.insertedCount === 0) throw "Could not create project";
+    },
+
+    // Retrieves all projects
+    async getProjects() {
+        const projectsCollection = await projects();
+
+        const projectsArray = await projects.find().toArray();
+
+        return projectsArray;
+    },
+
+    // Deletes a project given a project ID
+    async deleteProject(projectId) {
+        if (!projectId) throw "Project ID must be provided";
+
+        const projectsCollection = await projects();
+
+        const deletionInfo = await projectsCollection.removeOne( {_id: projectId} );
+        if (deletionInfo.deletedCount === 0) throw "could not delete project";
+
     }
 }
