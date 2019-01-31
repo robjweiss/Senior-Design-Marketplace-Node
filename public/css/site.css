@@ -27,7 +27,6 @@ body {
   background-color: #333;
 }
 body {
-background-image: url("http://media.nj.com/hudsoncountynow_impact/photo/mumps-outbreak-confirmed-at-stevens-institute-of-technology-in-hoboken-872edb6aaa4fa7da.jpg");
       -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -40,6 +39,14 @@ background-image: url("http://media.nj.com/hudsoncountynow_impact/photo/mumps-ou
 }
 .cover-container {
   max-width: 42em;
+}
+.landing {
+  width: 100%;
+  background-image: url("http://media.nj.com/hudsoncountynow_impact/photo/mumps-outbreak-confirmed-at-stevens-institute-of-technology-in-hoboken-872edb6aaa4fa7da.jpg");
+}
+
+main{
+  width: 100%;
 }
 /*
  * Header
