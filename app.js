@@ -7,9 +7,26 @@ var SamlStrategy = require('passport-saml').Strategy;
 
 // We create our express isntance:
 const app = express();
+// const passport = passport();
 const static = express.static(__dirname + "/public");
 const exphbs = require("express-handlebars");
 const Handlebars = require("handlebars");
+
+// passport.use(new SamlStrategy(
+//   {
+//     path: '/login',
+//     entryPoint: 'https://openidp.feide.no/simplesaml/saml2/idp/SSOService.php',
+//     issuer: 'passport-saml'
+//   },
+//   function(profile, done) {
+//     findByEmail(profile.email, function(err, user) {
+//       if (err) {
+//         return done(err);
+//       }
+//       return done(null, user);
+//     });
+//   })
+// );
 
 const handlebarsInstance = exphbs.create({
   defaultLayout: "main",
