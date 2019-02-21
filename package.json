@@ -18,12 +18,8 @@
     "cookie-parser": "^1.4.3",
     "express": "^4.16.4",
     "express-handlebars": "^3.0.0",
-<<<<<<< HEAD
     "fs": "0.0.1-security",
     "handlebars": "^4.0.12",
-=======
-    "handlebars": "^4.1.0",
->>>>>>> f1802d04240449ec4102b02c2222d3ae66f97a1e
     "jquery": "^3.3.1",
     "mongodb": "^3.1.10",
     "node-uuid": "^1.4.8",
