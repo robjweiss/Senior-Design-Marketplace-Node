@@ -17,8 +17,9 @@ passport.use(new SamlStrategy(
   {
     path: '/login/callback',
     entryPoint: 'https://shibboleth.stevens.edu/idp/profile/SAML2/Redirect/SSO',
-    issuer: 'passport-saml',
-    decryptionPvk: fs.readFileSync('./credentials/mykey.key', 'utf-8'),
+    issuer: 'passport-saml'
+    // ,
+    // decryptionPvk: fs.readFileSync('./credentials/mykey.key', 'utf-8'),
   },
   function(profile, done) {
     findByEmail(profile.email, function(err, user) {
@@ -30,27 +31,27 @@ passport.use(new SamlStrategy(
   })
 );
 
-app.get('/metadata',
-  function(req, res) {
-    const decryptionCert = fs.readFileSync('./credentials/certificate.crt', 'utf-8');
-    res.type('application/xml');
-    res.send((new SamlStrategy(
-      {
-        path: '/login/callback',
-        entryPoint: 'https://shibboleth.stevens.edu/idp/profile/SAML2/Redirect/SSO',
-        issuer: 'passport-saml',
-        decryptionPvk: fs.readFileSync('./credentials/mykey.key', 'utf-8'),
-      },
-      function(profile, done) {
-        findByEmail(profile.email, function(err, user) {
-          if (err) {
-            return done(err);
-          }
-          return done(null, user);
-        });
-      }).generateServiceProviderMetadata(decryptionCert)));
-  }
-);
+// app.get('/metadata',
+//   function(req, res) {
+//     const decryptionCert = fs.readFileSync('./credentials/certificate.crt', 'utf-8');
+//     res.type('application/xml');
+//     res.send((new SamlStrategy(
+//       {
+//         path: '/login/callback',
+//         entryPoint: 'https://shibboleth.stevens.edu/idp/profile/SAML2/Redirect/SSO',
+//         issuer: 'passport-saml',
+//         decryptionPvk: fs.readFileSync('./credentials/mykey.key', 'utf-8'),
+//       },
+//       function(profile, done) {
+//         findByEmail(profile.email, function(err, user) {
+//           if (err) {
+//             return done(err);
+//           }
+//           return done(null, user);
+//         });
+//       }).generateServiceProviderMetadata(decryptionCert)));
+//   }
+// );
 
 const handlebarsInstance = exphbs.create({
   defaultLayout: "main",
