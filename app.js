@@ -4,29 +4,53 @@ const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const configRoutes = require("./routes");
 var SamlStrategy = require('passport-saml').Strategy;
+const fs = require('fs');
 
 // We create our express isntance:
 const app = express();
-// const passport = passport();
+const passport = require("passport");
 const static = express.static(__dirname + "/public");
 const exphbs = require("express-handlebars");
 const Handlebars = require("handlebars");
 
-// passport.use(new SamlStrategy(
-//   {
-//     path: '/login',
-//     entryPoint: 'https://openidp.feide.no/simplesaml/saml2/idp/SSOService.php',
-//     issuer: 'passport-saml'
-//   },
-//   function(profile, done) {
-//     findByEmail(profile.email, function(err, user) {
-//       if (err) {
-//         return done(err);
-//       }
-//       return done(null, user);
-//     });
-//   })
-// );
+passport.use(new SamlStrategy(
+  {
+    path: '/login/callback',
+    entryPoint: 'https://shibboleth.stevens.edu/idp/profile/SAML2/Redirect/SSO',
+    issuer: 'passport-saml',
+    decryptionPvk: fs.readFileSync('./credentials/mykey.key', 'utf-8'),
+  },
+  function(profile, done) {
+    findByEmail(profile.email, function(err, user) {
+      if (err) {
+        return done(err);
+      }
+      return done(null, user);
+    });
+  })
+);
+
+app.get('/metadata',
+  function(req, res) {
+    const decryptionCert = fs.readFileSync('./credentials/certificate.crt', 'utf-8');
+    res.type('application/xml');
+    res.send((new SamlStrategy(
+      {
+        path: '/login/callback',
+        entryPoint: 'https://shibboleth.stevens.edu/idp/profile/SAML2/Redirect/SSO',
+        issuer: 'passport-saml',
+        decryptionPvk: fs.readFileSync('./credentials/mykey.key', 'utf-8'),
+      },
+      function(profile, done) {
+        findByEmail(profile.email, function(err, user) {
+          if (err) {
+            return done(err);
+          }
+          return done(null, user);
+        });
+      }).generateServiceProviderMetadata(decryptionCert)));
+  }
+);
 
 const handlebarsInstance = exphbs.create({
   defaultLayout: "main",

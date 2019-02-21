@@ -4,9 +4,26 @@ const data = require("../data");
 const usersData = data.users;
 const uuid = require("node-uuid");
 const xss = require("xss");
+const passport = require("passport");
+
+
+router.post('/login/callback',
+  passport.authenticate('saml', { failureRedirect: '/', failureFlash: true }),
+  function(req, res) {
+    res.redirect('/');
+  }
+);
+
+router.get('/login',
+  passport.authenticate('saml', { failureRedirect: '/', failureFlash: true }),
+  function(req, res) {
+    res.redirect('/');
+  }
+);
+
 
 router.get("/", async function (req, res) {
-    res.render("pages/login", {
+    res.render("pages/projects", {
         title: "Login"
     });
 });
