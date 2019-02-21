@@ -4,6 +4,7 @@ const data = require("../data");
 const usersData = data.users;
 const uuid = require("node-uuid");
 const xss = require("xss");
+const projectsDB = data.projects;
 
 router.get("/", async function (req, res) {
     res.render("pages/login", {
@@ -51,9 +52,9 @@ router.get("/landing", async function (req, res) {
 });
 
 router.get("/projects", async function (req, res) {
-    res.render("pages/projects");
+	p = JSON.stringify(await projectsDB.getProjects());
+    res.render("pages/projects", {projects: p});
 });
-
 
 
 
