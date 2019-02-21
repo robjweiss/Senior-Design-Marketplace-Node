@@ -7,7 +7,7 @@ module.exports = {
         if (title === null) throw "Project must have a title";
         if (description === null) throw "Project must have a description";
         // Add a check for members
-
+		date = "" //find current date
         const projectsCollection = await projects();
 
         const uuid = uuidv4();
@@ -16,12 +16,15 @@ module.exports = {
             "_id": uuid,
             "title": title,
             "description": description,
+			"author": creator,
+			"date": date,
+			"views": 0,
+			"visibility": visibility,
             "sponsors": sponsors,
+            "locked": locked,			
             "majors": majors,
             "size": size,
-            "visibility": visibility,
             "lockout": lockout,
-            "locked": locked,
             "members": [creator]
         }
 
@@ -33,7 +36,7 @@ module.exports = {
     async getProjects() {
         const projectsCollection = await projects();
 
-        const projectsArray = await projects.find().toArray();
+        const projectsArray = await projectsCollection.find().toArray();
 
         return projectsArray;
     },

@@ -21,6 +21,7 @@ router.get('/login',
   }
 );
 
+const projectsDB = data.projects;
 
 router.get("/", async function (req, res) {
     res.render("pages/projects", {
@@ -68,9 +69,9 @@ router.get("/landing", async function (req, res) {
 });
 
 router.get("/projects", async function (req, res) {
-    res.render("pages/projects");
+	p = JSON.stringify(await projectsDB.getProjects());
+    res.render("pages/projects", {projects: p});
 });
-
 
 
 

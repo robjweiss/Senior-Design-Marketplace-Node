@@ -1,7 +1,6 @@
 
 $.fn.selectpicker.Constructor.BootstrapVersion = '4';
 
-projects = {}; //?????
 page = 1;
 pageTotal = 0;
 rowTotal = 0;
@@ -15,7 +14,7 @@ views = x[5];
 visibility = x[6];
 sponsors = x[7];
 locked = x[8];
-url = "http://http://localhost:5000/";
+url = "http://http://localhost:3000/";
 if(locked == 1) {
 locked = "<i class='material-icons'>lock</i>";
 } else {
