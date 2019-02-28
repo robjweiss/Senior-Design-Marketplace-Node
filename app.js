@@ -113,5 +113,4 @@ configRoutes(app);
 // We can now navigate to localhost:3000
 app.listen(3000, function () {
     console.log("Your server is now listening on port 3000! Navigate to http://localhost:3000 to access it");
-    if (process && process.send) process.send({ done: true }); // ADD THIS LINE
 });

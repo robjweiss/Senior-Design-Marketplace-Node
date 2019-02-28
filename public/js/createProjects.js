@@ -21,15 +21,16 @@ $(document).ready(function () {
                     type: 'POST',
                     url: '/create',
                     data: data,
+                    success: function(data){console.log(data);},
                     dataType: 'json'
                 });
 
-                $.ajax({
-                    type: 'GET',
-                    url: '/createProject'
-                }).done(function () {
-                    window.location = window.location;
-                });
+                // $.ajax({
+                //     type: 'GET',
+                //     url: '/createProject'
+                // }).done(function () {
+                //     window.location = window.location;
+                // });
             }, false);
         });
     });

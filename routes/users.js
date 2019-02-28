@@ -5,7 +5,7 @@ const usersData = data.users;
 const uuid = require("node-uuid");
 const xss = require("xss");
 const passport = require("passport");
-
+const projectData = data.projects;
 
 router.post('/login/callback',
   passport.authenticate('saml', { failureRedirect: '/', failureFlash: true }),
@@ -73,6 +73,17 @@ router.get("/projects", async function (req, res) {
     res.render("pages/projects", {projects: p});
 });
 
-
+router.post("/create", async function (req, res) {
+    title= req.body.title;
+    description = req.body.description;
+    sponsors= req.body.sponsors;
+    majors= req.body.majors;
+    size= req.body.size;
+    visibility= req.body.visibility;
+    lockout= req.body.lockout;
+    locked= req.body.locked;
+    creator= req.body.creator;
+    await projectData.createProject(title, description, sponsors, majors, size, visibility, lockout, locked, creator);
+});
 
 module.exports = router;
