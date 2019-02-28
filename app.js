@@ -17,7 +17,8 @@ passport.use(new SamlStrategy(
   {
     path: '/login/callback',
     entryPoint: 'https://shibboleth.stevens.edu/idp/profile/SAML2/Redirect/SSO',
-    issuer: 'passport-saml'
+    issuer: 'senior-design-marketplace',
+    host: 'mallard.stevens.edu'
     // ,
     // decryptionPvk: fs.readFileSync('./credentials/mykey.key', 'utf-8'),
   },
@@ -39,7 +40,8 @@ passport.use(new SamlStrategy(
 //       {
 //         path: '/login/callback',
 //         entryPoint: 'https://shibboleth.stevens.edu/idp/profile/SAML2/Redirect/SSO',
-//         issuer: 'passport-saml',
+//         issuer: 'senior-design-marketplace',
+//         host: 'mallard.stevens.edu:3000',
 //         decryptionPvk: fs.readFileSync('./credentials/mykey.key', 'utf-8'),
 //       },
 //       function(profile, done) {
