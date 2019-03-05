@@ -6,7 +6,11 @@ module.exports = {
     async createProposal(title, description, sponsors, majors, creator) {
         if (title === null) throw "Proposal must have a title";
         if (description === null) throw "Proposal must have a description";
-		date = "" //find current date
+        
+        var today = new Date();
+        let dateString = (today.getMonth() + 1).toString() + "/" + today.getDate().toString() + "/" + today.getFullYear().toString();
+        date = dateString;
+        
         const proposalCollection = await proposals();
 
         const uuid = uuidv4();
