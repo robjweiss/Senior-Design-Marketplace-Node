@@ -5,15 +5,15 @@ page = 1;
 pageTotal = 0;
 rowTotal = 0;
 projects.forEach(function (x, i) {
-  id = x[0];
-  title = x[1];
-  desc = x[2];
-  author = x[3];
-  date = x[4];
-  views = x[5];
-  visibility = x[6];
-  sponsors = x[7];
-  locked = x[8];
+  id = x["_id"];
+  title = x["title"];
+  desc = x["description"];
+  author = x["author"];
+  date = x["date"];
+  views = x["views"];
+  visibility = x["visibility"];
+  sponsors = x["sponsors"];
+  locked = x["locked"];
   url = "http://http://localhost:3000/";
   if (locked == 1) {
     locked = "<i class='material-icons'>lock</i>";

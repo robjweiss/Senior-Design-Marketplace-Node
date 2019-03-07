@@ -4,7 +4,7 @@ function projectCard(id, title, desc, date, locked) {
         <div class="card-body">
             <h5 class="card-title">${locked}${title}</h5>
             <p class="card-text" id='shortDesc${id}'>${desc}</p>
-            <p class="card-text"><small class="text-muted">Last updated ${date}</small>
+            <p class="card-text"><small class="text-muted">Last updated [${date}]</small>
         </div>
         <div class="card-footer float-right text-right">
             <a href="#" class="btn btn-primary float-right" data-toggle="modal" id='moreInfo' data-target="#modal${id}">More Info</a>
@@ -40,7 +40,7 @@ function projectCard(id, title, desc, date, locked) {
                 <a class="nav-link" id="qrTab" data-toggle="tab" href="#qrTest" role="tab" aria-controls="qrTab" aria-selected="false">QR Code</a>
             </li>
             </ul>
-        <div class="modal-content-tldr"><span class="infoSpan"><span class="material-icons" style="color:red">whatshot</span> ${views} views</span><span class="infoSpan">Created by: <a class='regularLink'>${author}</a> ${date}</span><span class="infoSpan-last"><span class="material-icons" style="color:red">favorite</span>xxx</span></div>
+        <div class="modal-content-tldr"><span class="infoSpan"><span class="material-icons" style="color:red">whatshot</span> ${views} views</span><span class="infoSpan">Created by: <a class='regularLink'>${author}</a> [${date}]</span><span class="infoSpan-last"><span class="material-icons" style="color:red">favorite</span>xxx</span></div>
         <div class="container-fluid">
         <div class="tab-content" id="myTabContent">
         <!--General-->
