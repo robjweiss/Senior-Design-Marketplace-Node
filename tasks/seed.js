@@ -14,7 +14,7 @@ const main = async () => {
 
     const prop = await proposals.createProposal("Mining Bitcoin", "Help me get rich", "Myself", "Software Engineering", "Laura Oliveto");
     const prop2 = await proposals.createProposal("No Senior D", "Concept: there is no project", "Myself", "Software Engineering", "Caroline Squilante");
-    const prop3 = await proposals.createProposal("Mining Bitcoin", "Help me get rich", "Myself", "Software Engineering", "Laura Oliveto");
+    const prop3 = await proposals.createProposal("Build a Working Tardis", "Let's travel through time and space", "Myself", "Software Engineering", "Nicole Hilden");
 
     /*
     const use = await users.addUser();
