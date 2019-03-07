@@ -67,7 +67,7 @@ router.get("/createProposal", async function (req, res) {
 
 router.get("/admin", async function (req, res) {
     let allProjectData = await projectData.getProjects()
-    let allProposalData = await proposalData.getProjects()
+    let allProposalData = await proposalData.getProposal()
     res.render("pages/admin", {projects: allProjectData, proposals: allProposalData});
 });
 
