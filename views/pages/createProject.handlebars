@@ -42,16 +42,22 @@
 <main role="main" class="container">
   <div class="card">
     <div class="card-body">
-      <form class= "createProjectForm">
+      <form class= "createProjectForm needs-validation">
         <h5 class="card-title">Create Project</h5>
 
         <div class="input-group mb-3">
           <input type="text" class="form-control" id='title' placeholder="Title" aria-label="Title"
-            aria-describedby="basic-addon1">
+            aria-describedby="basic-addon1" required>
+          <div class="invalid-feedback">
+            Please choose a title.
+          </div>
         </div>
 
         <div class="input-group mb-3">
-          <textarea class="form-control" id= "description" placeholder="Description" aria-label="Description"></textarea>
+          <textarea class="form-control" id= "description" placeholder="Description" aria-label="Description" required></textarea>
+          <div class="invalid-feedback">
+            Please include a description.
+          </div>
         </div>
 
         <div class="input-group mb-3">
@@ -61,7 +67,7 @@
         </div>
 
         <div class="input-group mb-3">
-          <select id='majors' class="selectpicker"  id= "majors" title="Majors Desired" data-width="100%" data-live-search="true">
+          <select id='majors' class="selectpicker"  id= "majors" title="Majors Desired" data-width="100%" data-live-search="true" required>
             <optgroup label="Engineering">
               <option>Biomedical</option>
               <option>Chemical</option>
@@ -78,23 +84,32 @@
             <optgroup label="Sciences">
             </optgroup>
           </select>
+          <div class="invalid-feedback">
+            Please select at least one major.
+          </div>
         </div>
 
         <span id="majorLoad"></span>
 
         <div class="form-group mb-3">
-          <select class="selectpicker" id = "visability" title="Visibility" data-width="100%">
+          <select class="selectpicker" id = "visability" title="Visibility" data-width="100%" required>
             <option>Public</option>
             <option>Unlisted (Invite Only)</option>
             <option>Hidden</option>
             <option>Time Deployed?</option>
           </select>
+          <div class="invalid-feedback">
+            Please choose a visibility.
+          </div>
         </div>
 
         <div class="form-group row">
           <label for="total" id= "lockout" class="col-sm-9 col-form-label">Registration Lockout Date:</label>
           <div class="col-sm-3">
-            <input type="date" class="form-control" id="date">
+            <input type="date" class="form-control" id="date" required>
+            <div class="invalid-feedback">
+              Please choose a lockout date.
+            </div>
           </div>
         </div>
 
@@ -122,12 +137,12 @@
   $('#majors').on('changed.bs.select', function (e, clickedIndex, isSelected, previousValue) {
     var major = $('#majors').val();
     if (previousValue == "") {
-      $("#majorLoad").append("<div class='form-group row'><label for='total' class='col-sm-9 col-form-label'>Total Team Size: </label><div class='col-sm-3'><input type='number' class='form-control' id='total'></div></div>");
+      $("#majorLoad").append("<div class='form-group row'><label for='total' class='col-sm-9 col-form-label'>Total Team Size: </label><div class='col-sm-3'><input type='number' class='form-control' id='total' required></div></div>");
     }
 
     if ($("#" + major.toLowerCase()).length == 0) {
       oldValue = 0;
-      $("#majorLoad").prepend("<div class='form-group row'><label for='" + major.toLowerCase() + "' class='col-sm-9 col-form-label'>" + major + ": </label><div class='col-sm-3'><input type='number' class='form-control memcount' id='" + major.toLowerCase() + "'></div></div>");
+      $("#majorLoad").prepend("<div class='form-group row'><label for='" + major.toLowerCase() + "' class='col-sm-9 col-form-label'>" + major + ": </label><div class='col-sm-3'><input type='number' class='form-control memcount' id='" + major.toLowerCase() + "' required></div></div>");
     }
   });
   $('body').on('focusin', 'input.memcount', function () {
