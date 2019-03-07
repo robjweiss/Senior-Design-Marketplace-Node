@@ -64,6 +64,11 @@ router.get("/createProposal", async function (req, res) {
     res.render("pages/createProposal");
 });
 
+router.get("/admin", async function (req, res) {
+    let allProjectData = await projectData.getProjects()
+    res.render("pages/admin", {projects: allProjectData});
+});
+
 router.get("/landing", async function (req, res) {
     res.render("pages/landing");
 });
