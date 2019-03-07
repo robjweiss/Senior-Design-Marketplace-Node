@@ -6,6 +6,7 @@ const uuid = require("node-uuid");
 const xss = require("xss");
 const passport = require("passport");
 const projectData = data.projects;
+const proposalData = data.proposals;
 
 router.post('/login/callback',
   passport.authenticate('saml', { failureRedirect: '/', failureFlash: true }),
@@ -66,7 +67,8 @@ router.get("/createProposal", async function (req, res) {
 
 router.get("/admin", async function (req, res) {
     let allProjectData = await projectData.getProjects()
-    res.render("pages/admin", {projects: allProjectData});
+    let allProposalData = await proposalData.getProjects()
+    res.render("pages/admin", {projects: allProjectData, proposals: allProposalData});
 });
 
 router.get("/landing", async function (req, res) {
