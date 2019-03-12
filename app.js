@@ -30,13 +30,13 @@ passport.use(new SamlStrategy(
   })
 );
 
-passport.serializeUser(function (user, done) {
-  done(null, user);
-});
+// passport.serializeUser(function (user, done) {
+//   done(null, user);
+// });
 
-passport.deserializeUser(function (user, done) {
-  done(null, user);
-});
+// passport.deserializeUser(function (user, done) {
+//   done(null, user);
+// });
 
 // app.get('/metadata',
 //   function(req, res) {

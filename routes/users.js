@@ -11,14 +11,14 @@ const proposalData = data.proposals;
 router.post('/login/callback',
   passport.authenticate('saml', { failureRedirect: '/', failureFlash: true }),
   function(req, res) {
-    res.redirect('/projects');
+    res.redirect('/');
   }
 );
 
 router.get('/login',
   passport.authenticate('saml', { failureRedirect: '/', failureFlash: true }),
   function(req, res) {
-    res.redirect('/projects');
+    res.redirect('/');
   }
 );
 
