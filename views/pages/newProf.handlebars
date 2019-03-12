@@ -1,0 +1,76 @@
+<nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background-color: #9D1535;">
+    <a class="navbar-brand" href="/projects">SDMarketplace</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+        aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+            <!--<li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>-->
+            <li class="nav-item">
+                <a class="nav-link" href="/projects">Projects</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="/createProposal">Submit Proposal</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="/createProject">Create Project</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="/projects">Archives</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="/admin">Admin</a>
+            </li>
+
+        </ul>
+    </div>
+</nav>
+
+<main role="main" class="container">
+    <div class="card" style="width:400px; margin-left: auto; margin-right: auto;">
+        <div class="card-body">
+            <form>
+                <h5 class="card-title">New Professor</h5>
+
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" id='firstName' placeholder="First Name"
+                        aria-label="firstName" aria-describedby="basic-addon1">
+                </div>
+
+                <div class="input-group mb-3">
+                    <input class="form-control" placeholder="Last Name" aria-label="Description"></input>
+                </div>
+
+                <div class="input-group mb-3">
+                    <select id='majors' class="selectpicker" title="Your Department" data-width="100%" multiple
+                        data-Tick="true" data-live-search="true">
+                        <optgroup label="Majors">
+                            <option>Biomedical Engineering</option>
+                            <option>Chemical Engineering</option>
+                            <option>Civil Engineering</option>
+                            <option>Computer Engineering</option>
+                            <option>Electrical Engineering</option>
+                            <option>Environmental Engineering</option>
+                            <option>Management Engineering</option>
+                            <option>Mechanical Engineering</option>
+                            <option>Naval Engineering</option>
+                            <option>Software Engineering</option>
+                            <option>Systems Engineering</option>
+                        </optgroup>
+
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-primary float-right">Done</button>
+        </div>
+    </div>
+    </form>
+</main>
