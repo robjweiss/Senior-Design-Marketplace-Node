@@ -20,13 +20,17 @@ passport.use(new SamlStrategy(
     issuer: 'senior-design-marketplace',
     host: 'mallard.stevens.edu',
     identifierFormat: null,
-    decryptionPvk: fs.readFileSync('./credentials/mykey.key', 'utf-8')
+    decryptionPvk: fs.readFileSync('./credentials/mykey.key', 'utf-8'),
+    acceptedClockSkewMs: -1
   },
-  async function(profile, done) {
-    return done(null,
-      {
-        profile: profile
-      });
+  function(profile, done) {
+    // findByEmail(profile.email, function(err, user) {
+    //   if (err) {
+    //     return done(err);
+    //   }
+      console.log(profile)
+      return done(null);
+    // });
   })
 );
 
