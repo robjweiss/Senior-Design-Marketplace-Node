@@ -19,14 +19,16 @@ passport.use(new SamlStrategy(
     entryPoint: 'https://shibboleth.stevens.edu/idp/profile/SAML2/Redirect/SSO',
     issuer: 'senior-design-marketplace',
     host: 'mallard.stevens.edu',
-    identifierFormat: null,
+    // identifierFormat: null,
     decryptionPvk: fs.readFileSync('./credentials/mykey.key', 'utf-8')
   },
   async function(profile, done) {
-    return done(null,
-      {
-        profile: profile
-      });
+    findByEmail(profile.email, function(err, user) {
+      if (err) {
+        return done(err);
+      }
+      return done(null, user);
+    });
   })
 );
 
