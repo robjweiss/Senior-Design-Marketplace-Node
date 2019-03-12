@@ -75,6 +75,14 @@ router.get("/landing", async function (req, res) {
     res.render("pages/landing");
 });
 
+router.get("/newStudent", async function (req, res) {
+    res.render("pages/newStudent");
+});
+
+router.get("/newProf", async function (req, res) {
+    res.render("pages/newProf");
+});
+
 router.get("/projects", async function (req, res) {
 	p = JSON.stringify(await projectsDB.getProjects());
     res.render("pages/projects", {projects: p});
