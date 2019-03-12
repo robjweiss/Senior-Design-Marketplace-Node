@@ -22,11 +22,12 @@ passport.use(new SamlStrategy(
     identifierFormat: null,
     decryptionPvk: fs.readFileSync('./credentials/mykey.key', 'utf-8')
   },
-  async function(profile, done) {
+  function(profile, done) {
     // findByEmail(profile.email, function(err, user) {
     //   if (err) {
     //     return done(err);
     //   }
+      console.log(profile)
       return done(null, user);
     // });
   })
