@@ -87,6 +87,12 @@
     border-color: transparent;
     box-shadow: 0 0 0 3px rgba(255, 255, 255, .25);
   }
+
+  /* table */
+  th {
+  background-color: #e65263;
+  color: white;
+}
 </style>
 </head>
 
@@ -222,7 +228,7 @@
       <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
           <h1 class="h2">Project Dashboard</h1>
-          <div class="btn-toolbar mb-2 mb-md-0">
+          {{!-- <div class="btn-toolbar mb-2 mb-md-0">
             <div class="btn-group mr-2">
               <button class="btn btn-sm btn-outline-secondary">button1</button>
               <button class="btn btn-sm btn-outline-secondary">button2</button>
@@ -230,138 +236,155 @@
             <button class="btn btn-sm btn-outline-secondary dropdown-toggle">
               date
             </button>
+          </div> --}}
+        </div>
+
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist">
+          <li class="active"><a href="#projects" role="tab" data-toggle="tab">Projects</a></li>
+          <li><a href="#proposals" role="tab" data-toggle="tab">Proposals</a></li>
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+          <div class="tab-pane active" id="projects">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>
+                    #
+                  </th>
+                  <th>
+                    Title
+                  </th>
+                  <th>
+                    Description
+                  </th>
+                  <th>
+                    Author
+                  </th>
+                  <th>
+                    Date
+                  </th>
+                  <th>
+                    Sponsors
+                  </th>
+                  <th>
+                    Majors
+                  </th>
+                  <th>
+                    Size
+                  </th>
+                  <th>
+                    Members
+                  </th>
+                </tr>
+                {{#each projects}}
+                <tr>
+                  <th>
+                    {{inc @index}}
+                  </th>
+                  <th>
+                    {{this.title}}
+                  </th>
+                  <th>
+                    {{this.description}}
+                  </th>
+                  <th>
+                    {{this.author}}
+                  </th>
+                  <th>
+                    {{this.date}}
+                  </th>
+                  <th>
+                    {{this.sponsors}}
+                  </th>
+                  <th>
+                    {{this.majors}}
+                  </th>
+                  <th>
+                    {{this.size}}
+                  </th>
+                  <th>
+                    {{this.members}}
+                  </th>
+                </tr>
+                {{/each}}
+              </thead>
+              <tbody>
+              </tbody>
+            </table>
+          </div>
+          <div class="tab-pane" id="proposals">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>
+                    #
+                  </th>
+                  <th>
+                    Title
+                  </th>
+                  <th>
+                    Description
+                  </th>
+                  <th>
+                    Author
+                  </th>
+                  <th>
+                    Date
+                  </th>
+                  <th>
+                    Sponsors
+                  </th>
+                  <th>
+                    Majors
+                  </th>
+                  <th>
+
+                  </th>
+                </tr>
+                {{#each proposals}}
+                <tr>
+                  <th>
+                    {{inc @index}}
+                  </th>
+                  <th>
+                    {{this.title}}
+                  </th>
+                  <th>
+                    {{this.description}}
+                  </th>
+                  <th>
+                    {{this.author}}
+                  </th>
+                  <th>
+                    {{this.date}}
+                  </th>
+                  <th>
+                    {{this.sponsors}}
+                  </th>
+                  <th>
+                    {{this.majors}}
+                  </th>
+                  <th class="transbtnHolder">
+                    <button id="{{this._id}}" type="button" class="btn btn-outline-success btn-fw removetrans">Approve
+                      Project</button>
+                    <button id="{{this._id}}" type="button" class="btn btn-outline-success btn-fw removetrans">Deny
+                      Project</button>
+                  </th>
+                </tr>
+                {{/each}}
+              </thead>
+              <tbody>
+              </tbody>
+            </table>
           </div>
         </div>
-        <div class="adminCards">
-          <table class="table table-bordered">
-            <thead>
-              <tr>
-                <th>
-                  #
-                </th>
-                <th>
-                  Title
-                </th>
-                <th>
-                  Description
-                </th>
-                <th>
-                  Author
-                </th>
-                <th>
-                  Date
-                </th>
-                <th>
-                  Sponsors
-                </th>
-                <th>
-                  Majors
-                </th>
-                <th>
-                  Size
-                </th>
-                <th>
-                  Members
-                </th>
-              </tr>
-              {{#each projects}}
-              <tr>
-                <th>
-                  {{inc @index}}
-                </th>
-                <th>
-                  {{this.title}}
-                </th>
-                <th>
-                  {{this.description}}
-                </th>
-                <th>
-                  {{this.author}}
-                </th>
-                <th>
-                  {{this.date}}
-                </th>
-                <th>
-                  {{this.sponsors}}
-                </th>
-                <th>
-                  {{this.majors}}
-                </th>
-                <th>
-                  {{this.size}}
-                </th>
-                <th>
-                  {{this.members}}
-                </th>
-              </tr>
-              {{/each}}
-            </thead>
-            <tbody>
-            </tbody>
-          </table>
-          <table class="table table-bordered">
-            <thead>
-              <tr>
-                <th>
-                  #
-                </th>
-                <th>
-                  Title
-                </th>
-                <th>
-                  Description
-                </th>
-                <th>
-                  Author
-                </th>
-                <th>
-                  Date
-                </th>
-                <th>
-                  Sponsors
-                </th>
-                <th>
-                  Majors
-                </th>
-                <th>
 
-                </th>
-              </tr>
-              {{#each proposals}}
-              <tr>
-                <th>
-                  {{inc @index}}
-                </th>
-                <th>
-                  {{this.title}}
-                </th>
-                <th>
-                  {{this.description}}
-                </th>
-                <th>
-                  {{this.author}}
-                </th>
-                <th>
-                  {{this.date}}
-                </th>
-                <th>
-                  {{this.sponsors}}
-                </th>
-                <th>
-                  {{this.majors}}
-                </th>
-                <th class="transbtnHolder">
-                  <button id="{{this._id}}" type="button" class="btn btn-outline-success btn-fw removetrans">Approve
-                    Project</button>
-                  <button id="{{this._id}}" type="button" class="btn btn-outline-success btn-fw removetrans">Deny
-                    Project</button>
-                </th>
-              </tr>
-              {{/each}}
-            </thead>
-            <tbody>
-            </tbody>
-          </table>
+        <div class="adminCards">
+
+
         </div>
     </div>
   </div>
