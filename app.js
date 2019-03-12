@@ -20,7 +20,8 @@ passport.use(new SamlStrategy(
     issuer: 'senior-design-marketplace',
     host: 'mallard.stevens.edu',
     identifierFormat: null,
-    decryptionPvk: fs.readFileSync('./credentials/mykey.key', 'utf-8')
+    decryptionPvk: fs.readFileSync('./credentials/mykey.key', 'utf-8'),
+    acceptedClockSkewMs: -1
   },
   function(profile, done) {
     // findByEmail(profile.email, function(err, user) {
