@@ -28,7 +28,7 @@ passport.use(new SamlStrategy(
     //     return done(err);
     //   }
       console.log(profile)
-      return done(null, profile);
+      return done(null);
     // });
   })
 );
