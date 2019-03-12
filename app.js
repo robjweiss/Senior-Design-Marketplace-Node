@@ -22,7 +22,7 @@ passport.use(new SamlStrategy(
     identifierFormat: null,
     decryptionPvk: fs.readFileSync('./credentials/mykey.key', 'utf-8')
   },
-  function(profile, done) {
+  async function(profile, done) {
     return done(null,
       {
         profile: profile
