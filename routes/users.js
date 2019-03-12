@@ -25,9 +25,7 @@ router.get('/login',
 const projectsDB = data.projects;
 
 router.get("/", async function (req, res) {
-    res.render("pages/projects", {
-        title: "Login"
-    });
+    res.redirect("/projects")
 });
 
 router.post("/login", async function (req, res) {
