@@ -7,7 +7,7 @@ const xss = require("xss");
 const passport = require("passport");
 const projectData = data.projects;
 const proposalData = data.proposals;
-
+const applicationData = data.applications;
 router.post('/login/callback',
   passport.authenticate('saml', { failureRedirect: '/', failureFlash: true }),
   function(req, res) {
@@ -99,4 +99,19 @@ router.post("/create", async function (req, res) {
     await projectData.createProject(title, description, sponsors, majors, size, visibility, lockout, locked, creator);
 });
 
+router.post("/createproposal", async function (req, res) {
+    title= req.body.title;
+    description = req.body.description;
+    sponsors= req.body.sponsors;
+    majors= req.body.majors;
+    creator= req.body.creator;
+    await proposalData.createProposal(title, description, sponsors, majors, creator);
+});
+
+router.post("/apply", async function(req, res) {
+	applicant = req.body.user;
+	project = req.body.proj;
+	await applicationData.addApplication(applicant,project);
+	res.send("Applied");
+});
 module.exports = router;

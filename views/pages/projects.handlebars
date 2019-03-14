@@ -130,3 +130,12 @@ Use none to make bigger
 	<script src="/public/js/jsObjects.js"></script>
 	<script src="/public/js/projects.js"></script>
 	<script src="/public/js/qrcode/qrcode.js"></script>
+	<script>
+$(".applyButton").click(function() {
+	$.post ('/apply',{user: "Kevin", proj: "Senior Design Marketplace"},function(x) {
+        if(x == "Applied") {
+			alert("Applied!");
+		}
+    });
+	});
+	</script>
