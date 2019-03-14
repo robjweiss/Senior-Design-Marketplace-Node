@@ -11,16 +11,16 @@ const applicationData = data.applications;
 
 
 router.post('/login/callback',
-  passport.authenticate('saml', { failureRedirect: '/', failureFlash: true }),
+  passport.authenticate('saml', { failureRedirect: '/projects', failureFlash: true }),
   function(req, res) {
-    res.redirect('/');
+    res.redirect('/projects');
   }
 );
 
 router.get('/login',
-  passport.authenticate('saml', { failureRedirect: '/', failureFlash: true }),
+  passport.authenticate('saml', { failureRedirect: '/projects', failureFlash: true }),
   function(req, res) {
-    res.redirect('/');
+    res.redirect('/projects');
   }
 );
 
