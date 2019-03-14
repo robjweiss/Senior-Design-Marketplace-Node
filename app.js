@@ -23,14 +23,9 @@ passport.use(new SamlStrategy(
     decryptionPvk: fs.readFileSync('./credentials/mykey.key', 'utf-8'),
     acceptedClockSkewMs: -1
   },
-  function(profile, done) {
-    findProf(profile.eduPersonAffiliation , function(err, user) {
-      if (err) {
-        return done(err);
-      }
-      console.log(profile)
-      return done(null, user);
-     });
+  function (profile, done) {
+    console.log('in verifier, profile is:', JSON.stringify(profile));
+    done();
   })
 );
 
@@ -78,36 +73,34 @@ const handlebarsInstance = exphbs.create({
   }
 });
 
-Handlebars.registerHelper("inc", function(value, options)
-{
-    return parseInt(value) + 1;
+Handlebars.registerHelper("inc", function (value, options) {
+  return parseInt(value) + 1;
 });
 
-Handlebars.registerHelper("money", function(value, options)
-{
-    return "$" + parseFloat(value).toFixed(2) + "";
+Handlebars.registerHelper("money", function (value, options) {
+  return "$" + parseFloat(value).toFixed(2) + "";
 });
 
-Handlebars.registerHelper("ifEqual", function(arg1, arg2, options) {
-    if (arg1 > arg2) {
-      return true;
-    } else {
-      return false;
-    }
+Handlebars.registerHelper("ifEqual", function (arg1, arg2, options) {
+  if (arg1 > arg2) {
+    return true;
+  } else {
+    return false;
+  }
 });
 
 const rewriteUnsupportedBrowserMethods = (req, res, next) => {
-    // If the user posts to the server with a property called _method, rewrite the request's method
-    // To be that method; so if they post _method=PUT you can now allow browsers to POST to a route that gets
-    // rewritten in this middleware to a PUT route
-    if (req.body && req.body._method) {
-      req.method = req.body._method;
-      delete req.body._method;
-    }
-  
-    // let the next middleware run:
-    next();
-  };
+  // If the user posts to the server with a property called _method, rewrite the request's method
+  // To be that method; so if they post _method=PUT you can now allow browsers to POST to a route that gets
+  // rewritten in this middleware to a PUT route
+  if (req.body && req.body._method) {
+    req.method = req.body._method;
+    delete req.body._method;
+  }
+
+  // let the next middleware run:
+  next();
+};
 
 app.use("/public", static);
 app.use(cookieParser());
@@ -122,5 +115,5 @@ configRoutes(app);
 
 // We can now navigate to localhost:5000
 app.listen(5000, function () {
-    console.log("Your server is now listening on port 3000! Navigate to http://localhost:5000 to access it");
+  console.log("Your server is now listening on port 3000! Navigate to http://localhost:5000 to access it");
 });
