@@ -24,13 +24,13 @@ passport.use(new SamlStrategy(
     acceptedClockSkewMs: -1
   },
   function(profile, done) {
-    // findByEmail(profile.email, function(err, user) {
-    //   if (err) {
-    //     return done(err);
-    //   }
+    findByEmail(profile.email, function(err, user) {
+      if (err) {
+        return done(err);
+      }
       console.log(profile)
-      return done(null);
-    // });
+      return done(null, user);
+     });
   })
 );
 
