@@ -152,6 +152,7 @@
         <!-- Tab panes -->
         <div class="tab-content">
           <div class="tab-pane active" id="projects">
+            <h4>Projects</h4>
             <table class="table table-bordered">
               <thead>
                 <tr>
@@ -220,6 +221,7 @@
             </table>
           </div>
           <div class="tab-pane" id="proposals">
+            <h4>Proposals</h4>
             <table class="table table-bordered">
               <thead>
                 <tr>
@@ -271,11 +273,11 @@
                   <td>
                     {{this.majors}}
                   </td>
-                  <td class="transbtnHolder">
-                    <button id="{{this._id}}" type="button" class="btn btn-outline-success btn-fw removetrans">Approve
-                      Project</button>
-                    <button id="{{this._id}}" type="button" class="btn btn-outline-success btn-fw removetrans">Deny
-                      Project</button>
+                  <td class="proposalHolder">
+                    <button id="{{this._id}}" type="button" class="btn btn-outline-success btn-fw acceptProposal">Approve
+                      Proposal</button>
+                    <button id="{{this._id}}" type="button" class="btn btn-outline-success btn-fw removeProposal">Deny
+                      Proposal</button>
                   </td>
                 </tr>
                 {{/each}}
@@ -287,8 +289,6 @@
         </div>
 
         <div class="adminCards">
-
-
         </div>
     </div>
   </div>
@@ -304,18 +304,17 @@
     crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.2/js/bootstrap-select.min.js"></script>
   <script type="text/javascript">
-< !--General Scripts, Put with includes
--->
-< !--Tooltips-->
-      $(function () {
-        $('[data-toggle="tooltip"]').tooltip()
-      });
-< !--SelectPicker-->
-      $.fn.selectpicker.Constructor.BootstrapVersion = '4';
+
+    $(function () {
+      $('[data-toggle="tooltip"]').tooltip()
+    });
+
+    $.fn.selectpicker.Constructor.BootstrapVersion = '4';
   </script>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <script src="../../public/js/createProposal.js"></script>
 
 </body>
 

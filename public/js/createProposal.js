@@ -24,4 +24,38 @@ $(document).ready(function () {
         });
     });
 
+    $('.removeProposal').click(function () {
+        let propId = $(this).attr("id")
+        $.ajax({
+            type: 'POST',
+            url: '/removeProposal',
+            data: { "id": propId }
+        });
+
+        $.ajax({
+            type: 'GET',
+            url: '/admin'
+        }).done(function () {
+            window.location = window.location;
+        });
+
+    });
+
+    $('.acceptProposal').click(function () {
+        let propId = $(this).attr("id")
+        $.ajax({
+            type: 'POST',
+            url: '/approveProposal',
+            data: { "id": propId }
+        });
+
+        $.ajax({
+            type: 'GET',
+            url: '/admin'
+        }).done(function () {
+            window.location = window.location;
+        });
+
+    });
+
 });

@@ -114,4 +114,15 @@ router.post("/apply", async function(req, res) {
 	await applicationData.addApplication(applicant,project);
 	res.send("Applied");
 });
+
+router.post("/removeProposal", async function (req, res) {
+    let propId = req.body.id;
+    await proposalData.deleteProposal(propId);
+});
+
+router.post("/approveProposal", async function (req, res) {
+    let propId = req.body.id;
+    await proposalData.approveProposal(propId);
+});
+
 module.exports = router;
