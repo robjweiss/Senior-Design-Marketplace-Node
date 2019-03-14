@@ -8,6 +8,8 @@ const passport = require("passport");
 const projectData = data.projects;
 const proposalData = data.proposals;
 const applicationData = data.applications;
+
+
 router.post('/login/callback',
   passport.authenticate('saml', { failureRedirect: '/', failureFlash: true }),
   function(req, res) {

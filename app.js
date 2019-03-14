@@ -24,7 +24,7 @@ passport.use(new SamlStrategy(
     acceptedClockSkewMs: -1
   },
   function(profile, done) {
-    findByEmail(profile.email, function(err, user) {
+    findProf(profile.eduPersonAffiliation , function(err, user) {
       if (err) {
         return done(err);
       }
