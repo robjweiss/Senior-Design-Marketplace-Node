@@ -127,7 +127,7 @@ function projectCard(id, title, desc, date, locked) {
             </div>
           
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-dismiss="modal">Apply</button>
+                <button id="${id}" type="button" class="btn btn-primary applyButton" data-dismiss="modal">Apply</button>
             </div>
           
         </div>
